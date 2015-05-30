@@ -1,5 +1,7 @@
 ﻿
 using strange.extensions.context.impl;
+using strange.extensions.pool.api;
+using strange.extensions.pool.impl;
 using UnityEngine;
 using System.Collections;
 
@@ -20,6 +22,12 @@ namespace FlappyAnus
             //Mapping Input
             injectionBinder.Bind<IInput>().To<KeyboardInput>().ToSingleton();
 
+            //Pools
+            injectionBinder.Bind<IPool<GameObject>>()
+                .To<Pool<GameObject>>()
+                .ToSingleton()
+                .ToName(GameElement.OBSTACLE_POOL);
+
             //Signals (That are not bound to commands)
             injectionBinder.Bind<GameStartedSignal>().ToSingleton();
             injectionBinder.Bind<GameInputSignal>().ToSingleton();
@@ -38,10 +46,15 @@ namespace FlappyAnus
 
             //Mediation
             mediationBinder.Bind<PlayerView>().To<PlayerMediator>();
+            mediationBinder.Bind<ObstacleView>().To<ObstacleMediator>();
         }
 
         protected override void postBindings()
         {
+
+            IPool<GameObject> obstaclePool = injectionBinder.GetInstance<IPool<GameObject>>(GameElement.OBSTACLE_POOL);
+            obstaclePool.instanceProvider = new ResourceInstanceProvider("Obstacle", LayerMask.NameToLayer("obstacle"));
+            obstaclePool.inflationType = PoolInflationType.INCREMENT;
             base.postBindings();
         }
     }

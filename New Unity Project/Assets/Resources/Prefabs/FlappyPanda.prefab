@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 407474}
   - 212: {fileID: 21282562}
-  - 50: {fileID: 5011368}
   - 61: {fileID: 6130316}
   - 114: {fileID: 11476584}
+  - 50: {fileID: 5087204}
   m_Layer: 0
   m_Name: FlappyPanda
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5011368
+--- !u!50 &5087204
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

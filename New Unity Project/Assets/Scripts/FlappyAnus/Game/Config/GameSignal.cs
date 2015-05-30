@@ -17,4 +17,6 @@ namespace FlappyAnus
     //Vector3  Position of the obstacle
     public class CreateObstacleSignal : Signal<Vector3> { }
 
+    //public class DestroyObstacleSignal : Signal<ObstacleView, bool> { }
+
 }

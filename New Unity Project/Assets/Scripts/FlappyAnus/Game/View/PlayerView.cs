@@ -39,7 +39,7 @@ namespace FlappyAnus
             }
         }
 
-        void OnTriggerEnter()
+        void OnCollisionEnter2D()
         {
             collisionSignal.Dispatch();
         }

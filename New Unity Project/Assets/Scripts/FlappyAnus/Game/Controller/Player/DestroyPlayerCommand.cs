@@ -12,8 +12,6 @@ namespace FlappyAnus
         public override void Execute()
         {
             Debug.Log("You Died!");
-
-            base.Execute();
         }
     }
 

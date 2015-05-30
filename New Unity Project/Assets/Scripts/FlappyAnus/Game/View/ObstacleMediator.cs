@@ -1,15 +1,22 @@
-﻿using UnityEngine;
+﻿using strange.extensions.mediation.impl;
+using UnityEngine;
 using System.Collections;
 
-public class ObstacleMediator : MonoBehaviour {
+namespace FlappyAnus
+{
+    public class ObstacleMediator : Mediator
+    {
+        [Inject]
+        public ObstacleView view { get; set; }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        //[Inject]
+        //public DestroyObstacleSignal destroyObstacleSignal {get; set;}
+
+        public override void OnRegister()
+        {
+            view.Init();
+            
+        }
+    }
+
 }

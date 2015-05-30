@@ -37,6 +37,7 @@ namespace FlappyAnus
         private void onCollision()
         {
             destroyPlayerSignal.Dispatch(view, false);
+            
         }
     }
 
