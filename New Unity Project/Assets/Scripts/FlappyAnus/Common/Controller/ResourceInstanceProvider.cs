@@ -35,7 +35,7 @@ namespace FlappyAnus
             if (prototype == null)
             {
                 //Get the resource from Unity
-                prototype = Resources.Load<GameObject>(resourceName);
+                prototype = Resources.Load<GameObject>("Prefabs/" + resourceName);
                 prototype.transform.localScale = Vector3.one;
             }
 
