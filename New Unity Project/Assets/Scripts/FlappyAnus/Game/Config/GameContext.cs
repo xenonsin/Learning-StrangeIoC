@@ -22,6 +22,8 @@ namespace FlappyAnus
             //Mapping Input
             injectionBinder.Bind<IInput>().To<KeyboardInput>().ToSingleton();
 
+            injectionBinder.Bind<ISpawner>().To<ObstacleSpawner>().ToSingleton();
+
             //Pools
             injectionBinder.Bind<IPool<GameObject>>()
                 .To<Pool<GameObject>>()
@@ -40,9 +42,12 @@ namespace FlappyAnus
                 //which is found in the Controllers folder
                 commandBinder.Bind<StartSignal>()
                     .To<GameStartCommand>()
+                    .To<CreateObstacleSpawnerCommand>()
                     .Once();
             }
             commandBinder.Bind<DestroyPlayerSignal>().To<DestroyPlayerCommand>().Pooled();
+            commandBinder.Bind<CreateObstacleSignal>().To<CreateObstacleCommand>().Pooled();
+
 
             //Mediation
             mediationBinder.Bind<PlayerView>().To<PlayerMediator>();

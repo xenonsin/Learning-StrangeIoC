@@ -16,7 +16,7 @@ namespace  FlappyAnus
 
         internal void Init()
         {
-            Debug.Log("helo");
+            //Debug.Log("Obstacle Spawned");
             rb = GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(-speed, 0);
         }

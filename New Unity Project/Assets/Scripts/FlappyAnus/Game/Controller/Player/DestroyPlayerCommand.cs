@@ -11,7 +11,8 @@ namespace FlappyAnus
 
         public override void Execute()
         {
-            Debug.Log("You Died!");
+            //Debug.Log("You Died!");
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 
